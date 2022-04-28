@@ -76,7 +76,7 @@ resource "digitalocean_firewall" "database_firewall" {
 }
 
 resource "digitalocean_firewall" "static_content_firewall" {
-  name = "database-firewall"
+  name = "static-content-firewall"
 
   droplet_ids = [
       digitalocean_droplet.static_content.id

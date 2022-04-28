@@ -17,7 +17,3 @@ resource "digitalocean_floating_ip" "ip_bepartofit" {
   droplet_id = digitalocean_droplet.bepartofit.id
   region     = digitalocean_droplet.bepartofit.region
 }
-resource "digitalocean_floating_ip" "ip_static_content" {
-  droplet_id = digitalocean_droplet.static_content.id
-  region     = digitalocean_droplet.static_content.region
-}
