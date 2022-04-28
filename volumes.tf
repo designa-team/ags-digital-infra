@@ -1,9 +1,13 @@
+resource "digitalocean_tag" "autosnapshot" {
+  name = "autosnapshot"
+}
 resource "digitalocean_volume" "volume_static_content" {
   region                  = var.do_region
   name                    = "volume-static-content"
   size                    = 160
   initial_filesystem_type = "ext4"
   description             = "Volume for static content server"
+  tags                    = [digitalocean_tag.autosnapshot.id]
 }
 
 resource "digitalocean_volume_attachment" "volume_static_content" {
@@ -17,6 +21,7 @@ resource "digitalocean_volume" "volume_bepartofit" {
   size                    = 50
   initial_filesystem_type = "ext4"
   description             = "Volume for bepartofit server"
+  tags                    = [digitalocean_tag.autosnapshot.id]
 }
 
 resource "digitalocean_volume_attachment" "volume_bepartofit" {
@@ -30,6 +35,7 @@ resource "digitalocean_volume" "volume_database" {
   size                    = 20
   initial_filesystem_type = "ext4"
   description             = "Volume for database server"
+  tags                    = [digitalocean_tag.autosnapshot.id]
 }
 
 resource "digitalocean_volume_attachment" "volume_database" {
